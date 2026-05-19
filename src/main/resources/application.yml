@@ -1,0 +1,44 @@
+resilience4j:
+  circuitbreaker:
+    instances:
+      CircuitBreakerApi:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+        slidingWindowType: COUNT_BASED
+
+  # === NUEVA SECCIÓN PARA EL BULKHEAD ===
+  bulkhead:
+    instances:
+      bulkheadApi: # Este nombre DEBE coincidir exactamente con el name="..." de tu anotación @Bulkhead
+        maxConcurrentCalls: 2 # Máximo 2 peticiones procesándose al mismo tiempo
+        maxWaitDuration: 0    # Si los 2 hilos están ocupados, rechaza la 3ra petición de inmediato (0ms)
+
+  # === NUEVA SECCIÓN PARA EL RATE LIMITER ===
+  ratelimiter:
+    instances:
+      rateLimiterApi:
+        limitForPeriod: 5      # Número de permisos disponibles durante un periodo
+        limitRefreshPeriod: 10s # Periodo de renovación de permisos
+        timeoutDuration: 0     # Tiempo que espera un hilo por un permiso (0 = no espera)
+
+  # === NUEVA SECCIÓN PARA EL RETRY ===
+  retry:
+    instances:
+      retryApi:
+        maxAttempts: 3          # Número total de intentos (incluyendo el primero)
+        waitDuration: 2s        # Tiempo de espera entre reintentos
+        retryExceptions:        # Lista de excepciones que activarán un reintento
+          - java.lang.RuntimeException
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
