@@ -79,3 +79,58 @@ El proyecto tiene habilitado **Spring Boot Actuator** para monitorear el estado 
 
 ---
 *Desarrollado como ejemplo de arquitectura resiliente.*
+
+
+
+
+
+## Sección 1: Introduction
+
+### 1. Introduction to Resilience4j
+
+## Sección 2: Core Modules
+
+### 2. Core Modules
+
+### 3. Circuit Breaker
+
+### 4. Types of Circuit Breaker & its configuration
+
+### 5. Circuit Breaker Demo
+
+### 6. Bulk Head
+
+### 7. Bulk Head & its configuration
+
+### 8. Bulk Head Demo
+
+### 9. Rate Limiter
+
+### 10. Rate Limiter & its configuration
+
+### 11. Rate Limiter Demo
+
+### 12. Retry
+
+### 13. Retry & its configuration
+
+### 14. Retry Demo
+
+### 15. Time Limiter
+
+### 16. Time Limiter Demo
+
+### 17. Cache
+
+## Sección 3 Implementation using Spring boot
+
+### 18. Implementation with Spring Boot 3
+
+### 19. Annotation & Fallback Methods
+
+### 20. Metrics & Events Endpoints
+>- http://localhost:8080/actuator/circuitbreakers
+>- http://localhost:8080/actuator/retryevents
+>- http://localhost:8080/actuator/timelimiterevents
+>- http://localhost:8080/actuator/bulkheadevents
+>- http://localhost:8080/actuator/ratelimiterevents

@@ -1,5 +1,7 @@
 package com.programacionpa.app.controller;
 
+import java.util.concurrent.CompletableFuture;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,8 +38,8 @@ public class ResilientAppController {
     
     @GetMapping("/rate-limiter")
     @RateLimiter(name="rateLimiterApi", fallbackMethod="rateLimiterFallback")
-    public ResponseEntity<String> rateLimitApi(){
-    	return ResponseEntity.ok(externalAPICaller.callApiWithDelay());
+    public CompletableFuture<String> rateLimitApi(){
+    	return CompletableFuture.supplyAsync(externalAPICaller::callApiWithDelay2);
     }
     
     public ResponseEntity<String> rateLimiterFallback(Exception ex){

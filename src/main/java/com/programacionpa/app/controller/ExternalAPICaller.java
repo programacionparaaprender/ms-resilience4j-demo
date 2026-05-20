@@ -19,7 +19,16 @@ private final RestTemplate restTemplate;
     }
 	
 	public String callApiWithDelay() {
-        return "Ejemplo de código";
+		return "call api with delay";
+    }
+	
+	public String callApiWithDelay2() {
+		try {
+			Thread.sleep(2000);
+		}catch(InterruptedException ignore) {
+			
+		}
+        return "call api with delay";
     }
 
 
