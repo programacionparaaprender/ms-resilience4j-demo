@@ -81,7 +81,8 @@ El proyecto tiene habilitado **Spring Boot Actuator** para monitorear el estado 
 *Desarrollado como ejemplo de arquitectura resiliente.*
 
 
-
+## Curso
+>- https://www.udemy.com/course/resilience-4j/learn/lecture/38797458/?udfrontends=true
 
 
 ## Sección 1: Introduction
